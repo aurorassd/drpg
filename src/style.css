@@ -1,0 +1,27 @@
+body {
+  margin: 0;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  background: #0f1115;
+  color: #e4e6eb;
+}
+main { max-width: 1200px; margin: 0 auto; padding: 12px; }
+.controls { display: flex; gap: 12px; align-items: center; margin-bottom: 8px; }
+#map {
+  white-space: pre;
+  line-height: 1;
+  font-size: 18px;
+  border: 1px solid #333;
+  display: inline-block;
+  padding: 8px;
+  background: #050607;
+}
+#status { margin: 8px 0; }
+#log { margin-top: 8px; min-height: 120px; font-size: 14px; color: #9ad; }
+.player { color: #ffe082; }
+.monster { color: #ff8a80; }
+.item { color: #80cbc4; }
+.stairs { color: #b39ddb; }
+#levelup { position: fixed; inset: 0; display: grid; place-items: center; background: rgba(0,0,0,.7); }
+#levelup .choices { display: flex; gap: 8px; }
+#levelup.hidden { display: none; }
+button, select { padding: 6px 10px; }
