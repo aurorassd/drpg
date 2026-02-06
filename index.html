@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Auto Dungeon Roguelike</title>
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <main>
+      <h1>オート探索ローグライク</h1>
+      <section class="controls">
+        <label>行動方針
+          <select id="policy">
+            <option value="balanced">バランス</option>
+            <option value="aggressive">モンスター優先</option>
+            <option value="greedy">アイテム優先</option>
+            <option value="exit">階段優先</option>
+          </select>
+        </label>
+        <button id="startBtn">開始/再生成</button>
+        <button id="stepBtn">1ターン進行</button>
+      </section>
+
+      <section id="status"></section>
+      <div id="map"></div>
+      <section id="log"></section>
+
+      <div id="levelup" class="hidden">
+        <h2>モンスター撃破！ ステータスを1つ上げる</h2>
+        <div class="choices"></div>
+      </div>
+    </main>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
