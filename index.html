@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Danbooru Prompt Tag Manager</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Danbooruタグ プロンプト管理</h1>
+      <p>初回にタグを一括保存し、系統別に選んでプロンプトを構築できます。</p>
+    </header>
+
+    <main class="layout">
+      <section class="panel">
+        <h2>データ準備</h2>
+        <div class="row">
+          <button id="seedButton">タグを初回一括保存</button>
+          <button id="resetButton" class="secondary">ローカルDBをリセット</button>
+        </div>
+        <p id="seedStatus" class="status"></p>
+      </section>
+
+      <section class="panel">
+        <h2>タグ検索</h2>
+        <input id="searchInput" type="text" placeholder="タグ検索 (例: 1girl)" />
+      </section>
+
+      <section class="panel">
+        <h2>系統別タグ一覧（クリックで追加）</h2>
+        <div id="tagGroups" class="tag-groups"></div>
+      </section>
+
+      <section class="panel">
+        <h2>プロンプト欄（ドラッグ＆ドロップで順番変更）</h2>
+        <ul id="promptList" class="prompt-list"></ul>
+        <div class="row">
+          <button id="copyButton">プロンプトをコピー</button>
+          <button id="clearButton" class="secondary">全消去</button>
+        </div>
+        <textarea id="promptOutput" readonly rows="3"></textarea>
+      </section>
+    </main>
+
+    <script src="app.js" type="module"></script>
+  </body>
+</html>

@@ -1,0 +1,16 @@
+[
+  { "name": "1girl", "category": "人物" },
+  { "name": "1boy", "category": "人物" },
+  { "name": "smile", "category": "表情" },
+  { "name": "looking_at_viewer", "category": "表情" },
+  { "name": "long_hair", "category": "髪" },
+  { "name": "black_hair", "category": "髪" },
+  { "name": "school_uniform", "category": "服装" },
+  { "name": "kimono", "category": "服装" },
+  { "name": "city", "category": "背景" },
+  { "name": "night", "category": "背景" },
+  { "name": "masterpiece", "category": "品質" },
+  { "name": "best_quality", "category": "品質" },
+  { "name": "cinematic_lighting", "category": "光" },
+  { "name": "backlighting", "category": "光" }
+]
