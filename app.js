@@ -21,6 +21,11 @@ const promptOutput = document.querySelector('#promptOutput');
 const copyButton = document.querySelector('#copyButton');
 const clearButton = document.querySelector('#clearButton');
 
+function setImportButtonsDisabled(disabled) {
+  seedButton.disabled = disabled;
+  importDanbooruButton.disabled = disabled;
+}
+
 let tags = [];
 let promptTags = [];
 let draggedIndex = null;
@@ -186,10 +191,15 @@ async function loadSeedFile() {
 }
 
 async function fetchDanbooruTags(page) {
-  const url = `https://danbooru.donmai.us/tags.json?search[order]=count&page=${page}&limit=200`;
+  const url = `/api/danbooru-tags?page=${page}&limit=200`;
   const res = await fetch(url);
   if (!res.ok) {
-    throw new Error(`Danbooru APIエラー: page ${page}, status ${res.status}`);
+    let detail = '';
+    try {
+      const body = await res.json();
+      detail = body?.message ? ` (${body.message})` : '';
+    } catch {}
+    throw new Error(`Danbooru APIエラー: page ${page}, status ${res.status}${detail}`);
   }
   const raw = await res.json();
   return raw.map((t) => ({
@@ -201,6 +211,7 @@ async function fetchDanbooruTags(page) {
 
 async function importSeed() {
   try {
+    setImportButtonsDisabled(true);
     const current = await loadAllTags();
     if (current.length > 0) {
       tags = current;
@@ -215,13 +226,17 @@ async function importSeed() {
     setStatus(`シードを一括保存しました（${tags.length}件）。`);
     renderTagGroups();
   } catch (error) {
-    setStatus(error.message, true);
+    const message = error instanceof Error ? error.message : String(error);
+    setStatus(`取得に失敗: ${message}`, true);
+  } finally {
+    setImportButtonsDisabled(false);
   }
 }
 
 async function importFromDanbooru() {
   try {
     const pages = Math.min(30, Math.max(1, Number(pagesInput.value) || 8));
+    setImportButtonsDisabled(true);
     setStatus(`Danbooruから取得中... 0/${pages}`);
 
     const merged = new Map();
@@ -238,7 +253,10 @@ async function importFromDanbooru() {
     setStatus(`Danbooruタグを初回一括保存しました（${tags.length}件）。`);
     renderTagGroups();
   } catch (error) {
-    setStatus(error.message, true);
+    const message = error instanceof Error ? error.message : String(error);
+    setStatus(`取得に失敗: ${message}`, true);
+  } finally {
+    setImportButtonsDisabled(false);
   }
 }
 

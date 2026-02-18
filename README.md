@@ -7,10 +7,12 @@
 - タグを**クリックでプロンプト欄に追加**
 - 追加済みタグを**ドラッグ＆ドロップで順番差し替え**
 
-## 使い方
+## 起動（推奨）
+
+Danbooru取得ボタンを使うには、同梱のプロキシサーバーで起動してください。
 
 ```bash
-python3 -m http.server 4173
+python3 server.py
 ```
 
 `http://localhost:4173` を開いてください。
@@ -18,8 +20,8 @@ python3 -m http.server 4173
 ## データ取り込み
 
 - **同梱シードを一括保存**: `tags.seed.json` を保存
-- **Danbooru APIから一括取得**: `tags.json` を count順でページ取得して保存
+- **Danbooru APIから一括取得**: サーバー経由で `tags.json` を count順ページ取得して保存
   - ページ数はUIから指定（1〜30）
   - 1ページあたり200件
 
-> 備考: Danbooru API側の制限やネットワーク/CORS設定によっては、ブラウザからの直接取得が失敗する場合があります。
+> `python3 -m http.server` で起動した場合は `/api/danbooru-tags` が存在しないため、Danbooru取り込みは失敗します。
