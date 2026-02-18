@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Danbooru Prompt Tag Manager</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Danbooruタグ プロンプト管理</h1>
+      <p>タグは初回に一括保存し、系統別にクリック追加・D&Dで並び替えできます。</p>
+    </header>
+
+    <main class="layout">
+      <section class="panel">
+        <h2>データ準備（初回一括保存）</h2>
+        <div class="row wrap">
+          <button id="seedButton">同梱シードを一括保存</button>
+          <button id="importDanbooruButton">Danbooru APIから一括取得</button>
+          <label class="inline-input">取得ページ数
+            <input id="pagesInput" type="number" min="1" max="30" value="8" />
+          </label>
+          <button id="resetButton" class="secondary">ローカルDBをリセット</button>
+        </div>
+        <p class="note">※ API取り込みは初回向けです（count降順でページング取得）。</p>
+        <p id="seedStatus" class="status"></p>
+      </section>
+
+      <section class="panel">
+        <h2>タグ検索</h2>
+        <input id="searchInput" type="text" placeholder="タグ検索 (例: 1girl / long_hair)" />
+      </section>
+
+      <section class="panel">
+        <h2>系統別タグ一覧（クリックで追加）</h2>
+        <div id="tagGroups" class="tag-groups"></div>
+      </section>
+
+      <section class="panel">
+        <h2>プロンプト欄（ドラッグ＆ドロップで順番変更）</h2>
+        <ul id="promptList" class="prompt-list"></ul>
+        <div class="row">
+          <button id="copyButton">プロンプトをコピー</button>
+          <button id="clearButton" class="secondary">全消去</button>
+        </div>
+        <textarea id="promptOutput" readonly rows="3"></textarea>
+      </section>
+    </main>
+
+    <script src="app.js" type="module"></script>
+  </body>
+</html>

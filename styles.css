@@ -1,0 +1,122 @@
+:root {
+  color-scheme: light;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  margin: 0;
+  background: #f5f7fb;
+  color: #222;
+}
+
+header {
+  padding: 20px;
+  background: #1e293b;
+  color: #fff;
+}
+
+header h1 { margin: 0; }
+
+.layout {
+  max-width: 1100px;
+  margin: 20px auto;
+  display: grid;
+  gap: 16px;
+  padding: 0 16px 30px;
+}
+
+.panel {
+  background: #fff;
+  border: 1px solid #d9e1ef;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+
+.row { display: flex; gap: 8px; }
+.row.wrap { flex-wrap: wrap; align-items: center; }
+
+button {
+  border: none;
+  border-radius: 8px;
+  background: #2563eb;
+  color: #fff;
+  padding: 10px 14px;
+  cursor: pointer;
+}
+button.secondary { background: #64748b; }
+
+.inline-input {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: #334155;
+}
+.inline-input input {
+  width: 70px;
+  padding: 8px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+}
+
+.note { font-size: 12px; color: #64748b; margin: 8px 0 0; }
+.status { margin-top: 10px; min-height: 1.4em; }
+
+#searchInput,
+#promptOutput {
+  width: 100%;
+  border: 1px solid #c7d2e5;
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.tag-groups { display: grid; gap: 12px; }
+.group { border: 1px solid #e2e8f0; border-radius: 10px; padding: 10px; }
+.group h3 { margin: 0 0 8px; font-size: 15px; }
+.tags { display: flex; flex-wrap: wrap; gap: 8px; }
+
+.tag-chip {
+  background: #e0ecff;
+  color: #1e3a8a;
+  border-radius: 999px;
+  padding: 6px 10px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.prompt-list {
+  list-style: none;
+  margin: 0 0 12px;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  min-height: 40px;
+}
+
+.prompt-item {
+  background: #dcfce7;
+  color: #166534;
+  border: 1px solid #86efac;
+  border-radius: 10px;
+  padding: 8px 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: grab;
+}
+.prompt-item.dragging { opacity: 0.45; }
+
+.remove {
+  border: none;
+  background: #ef4444;
+  color: #fff;
+  border-radius: 999px;
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  padding: 0;
+}

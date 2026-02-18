@@ -1,0 +1,17 @@
+[
+  { "name": "masterpiece", "category": "一般", "count": 500000 },
+  { "name": "best_quality", "category": "一般", "count": 480000 },
+  { "name": "1girl", "category": "一般", "count": 4500000 },
+  { "name": "solo", "category": "一般", "count": 3200000 },
+  { "name": "smile", "category": "一般", "count": 900000 },
+  { "name": "looking_at_viewer", "category": "一般", "count": 1100000 },
+  { "name": "long_hair", "category": "一般", "count": 1200000 },
+  { "name": "black_hair", "category": "一般", "count": 800000 },
+  { "name": "school_uniform", "category": "一般", "count": 600000 },
+  { "name": "kimono", "category": "一般", "count": 250000 },
+  { "name": "night", "category": "一般", "count": 400000 },
+  { "name": "city", "category": "一般", "count": 260000 },
+  { "name": "genshin_impact", "category": "著作物", "count": 150000 },
+  { "name": "hatsune_miku", "category": "キャラクター", "count": 100000 },
+  { "name": "pixiv_id_0", "category": "アーティスト", "count": 5000 }
+]
